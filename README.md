@@ -39,6 +39,6 @@ BigSurM will output a series of files, containing information like the modified 
 
 To visualize the communities that arise from the calculated correlations, refer to documentation found in **"BigSur Visualization.nb"**
 
-To utilize BigSur in clustering cells, refer to documentation found in **BigSur Subclustering.nb"**
+To utilize BigSur in clustering cells, refer to documentation found in **"BigSur Subclustering.nb"**
 
 [1]: https://www.biorxiv.org/content/10.1101/2023.03.14.532643v1 "Leveraging gene correlations in single cell transcriptomic data"
