@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     25414,        594]
-NotebookOptionsPosition[     23161,        547]
-NotebookOutlinePosition[     23554,        563]
-CellTagsIndexPosition[     23511,        560]
+NotebookDataLength[     26822,        610]
+NotebookOptionsPosition[     24570,        563]
+NotebookOutlinePosition[     24962,        579]
+CellTagsIndexPosition[     24919,        576]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -68,7 +68,7 @@ distinguishing among related cell states.   \
   3.906460828573929*^9, 
   3.906461314754241*^9}},ExpressionUUID->"eee9da1c-6c70-47fb-be2f-\
 b21649340eac"]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -186,7 +186,7 @@ Cell[BoxData[
  Background->RGBColor[1, 1, 0],
  CellLabel->
   "In[775]:=",ExpressionUUID->"c83f71a0-d6ab-401d-9be9-c44efc88e8a3"]
-}, Closed]]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -204,44 +204,60 @@ Cell["SNNGraph2", "Subsubsection",
    3.9064203315927153`*^9},ExpressionUUID->"a836ff8b-c976-4b33-ae1d-\
 9ddb0b98cf47"],
 
-Cell["\<\
-This function uses IGraphM, one of the external packages loaded with BigSur, \
-for the final plotting step, where it calls, \
-\[OpenCurlyDoubleQuote]IGWeightedAdjacencyGraph\[CloseCurlyDoubleQuote]
-
-To use SNNGraph one first decides what features to use for clustering.  This \
-may be done by taking the genes with the most significant modified corrected \
-Fano factors, or taking genes that are part of particular gene communities.  
-
+Cell[TextData[{
+ "SNNGraph2 is a function which was created to mimic the functionality of the \
+FindNeighbors function in Seurat \
+(https://satijalab.org/seurat/reference/findneighbors ) in a Mathematica \
+environment. This function will determine both which cells belong to the same \
+cluster and the number of total clusters in the dataset through the \
+construction of a K Nearest Neighbor graph and calculation of the Shared \
+Nearest Neighbors from the first ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ " principal components",
+ ". This acts as a modified KNN approach where the edge weights are pruned \
+based on each node\[CloseCurlyQuote]s (cell\[CloseCurlyQuote]s) Jaccard \
+similarity index  with it\[CloseCurlyQuote]s neighbors. Edges between nodes \
+that have a Jaccard index lower than the cutoff will be removed. Default \
+parameters are identical to those found in Seurat.\n\nThis function uses \
+IGraphM, one of the external packages loaded with BigSur, for the final \
+plotting step, where it calls, \
+\[OpenCurlyDoubleQuote]IGWeightedAdjacencyGraph\[CloseCurlyDoubleQuote]\n\nTo \
+use SNNGraph one first decides what features to use for clustering.  This may \
+be done by taking the genes with the most significant modified corrected Fano \
+factors, or taking genes that are part of particular gene communities.  \n\n\
 The argument mat_ is then derived from the cell-specific residuals matrix \
 returned by BigSur, so that the cells are being clustered by their modified, \
 corrected Pearson residuals (one could also use a normalized gene expression \
 matrix, but artifacts induced by normalization can impede proper clustering). \
  One takes that matrix and from it extracts only those rows that correspond \
 to features one has chosen to use, and only those columns to correspond to \
-cells one wishes to cluster.  One then transposes that matrix, so that the \
-input to SNNGraph has cells as row labels and genes as column labels.  
-
-The parameter k refers to the number of nearest neighbors used in graph \
-generation.  Default=20.
-
-The parameter \[OpenCurlyDoubleQuote]cutoff\[CloseCurlyDoubleQuote] sets a \
-jaccard similarity cutoff; default = 0.0666667
-
-The parameter npcs refers to the number of Principal components used.  \
-Default = 50.
-
-The output of SNNGraph2 is list with two elements.  The first element is the \
-list of pcs, the second element is that weighted adjacency matrix.\
-\>", "Text",
+cells one wishes to cluster.  ",
+ StyleBox["One then transposes that matrix, so that the input to SNNGraph has \
+cells as row labels and genes as column labels.  ",
+  FontWeight->"Bold"],
+ "\n\nThe parameter k refers to the number of nearest neighbors used in graph \
+generation.  Default=20.\n\nThe parameter \[OpenCurlyDoubleQuote]cutoff\
+\[CloseCurlyDoubleQuote] sets a jaccard similarity cutoff; default = \
+0.0666667. If this is set to 0, no pruning will occur. If this is set to 1, \
+every edge will be pruned.\n\nThe parameter npcs refers to the number of \
+Principal components used.  Default = 50.\n\nThe output of SNNGraph2 is list \
+with two elements.  The first element is the list of pcs, the second element \
+is that weighted adjacency matrix."
+}], "Text",
  CellChangeTimes->{{3.874439425684841*^9, 3.874439453913331*^9}, {
-  3.874439639857974*^9, 3.874439647029187*^9}, {3.878505782371719*^9, 
-  3.8785058083957777`*^9}, {3.90641944003793*^9, 3.906419551486095*^9}, {
-  3.906419606241044*^9, 3.906419624525906*^9}, {3.906419664613824*^9, 
-  3.906419982524456*^9}, {3.906420054215312*^9, 3.906420062753557*^9}, {
-  3.9064200953991957`*^9, 3.9064201729449377`*^9}, {3.906420258243519*^9, 
-  3.906420267002038*^9}, {3.906420941521761*^9, 
-  3.906420993245677*^9}},ExpressionUUID->"81bc3d91-513a-4527-99e2-\
+   3.874439639857974*^9, 3.874439647029187*^9}, {3.878505782371719*^9, 
+   3.8785058083957777`*^9}, {3.90641944003793*^9, 3.906419551486095*^9}, {
+   3.906419606241044*^9, 3.906419624525906*^9}, {3.906419664613824*^9, 
+   3.906419982524456*^9}, {3.906420054215312*^9, 3.906420062753557*^9}, {
+   3.9064200953991957`*^9, 3.9064201729449377`*^9}, {3.906420258243519*^9, 
+   3.906420267002038*^9}, {3.906420941521761*^9, 3.906420993245677*^9}, {
+   3.906917915483053*^9, 3.906917922758676*^9}, {3.906917959440565*^9, 
+   3.906918036388685*^9}, {3.906918067252406*^9, 3.90691813985773*^9}, {
+   3.906918271297433*^9, 3.906918399450942*^9}, {3.90691847952139*^9, 
+   3.906918560757153*^9}, {3.906918593761982*^9, 3.906918606013411*^9}, {
+   3.906918791789472*^9, 3.9069188373131657`*^9}, 
+   3.906918872036512*^9},ExpressionUUID->"81bc3d91-513a-4527-99e2-\
 c0308f1d24d4"],
 
 Cell[BoxData[
@@ -547,7 +563,7 @@ Cell[BoxData[{
 },
 WindowSize->{992, 860},
 WindowMargins->{{Automatic, 326}, {Automatic, 0}},
-FrontEndVersion->"13.1 for Mac OS X ARM (64-bit) (June 16, 2022)",
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (June 3, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"9e1d80e3-1d8f-4dcd-9d8d-a1562f79f3df"
 ]
@@ -569,30 +585,30 @@ Cell[777, 29, 163, 3, 67, "Section",ExpressionUUID->"c430fcf9-2419-43d6-98a1-9b0
 Cell[CellGroupData[{
 Cell[965, 36, 246, 4, 45, "Subsubsection",ExpressionUUID->"56148ecc-37b5-4f88-81c2-bc264f3c40a2"],
 Cell[1214, 42, 1578, 27, 311, "Text",ExpressionUUID->"eee9da1c-6c70-47fb-be2f-b21649340eac"]
-}, Closed]],
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[2829, 74, 172, 3, 37, "Subsubsection",ExpressionUUID->"6f0a5443-c389-4f07-b583-e42ddc9f1609"],
+Cell[2829, 74, 172, 3, 45, "Subsubsection",ExpressionUUID->"6f0a5443-c389-4f07-b583-e42ddc9f1609"],
 Cell[3004, 79, 2317, 39, 426, "Text",ExpressionUUID->"8f015e31-2461-4101-9476-6a2786fc23c5"],
 Cell[5324, 120, 2676, 67, 236, "Input",ExpressionUUID->"c83f71a0-d6ab-401d-9be9-c44efc88e8a3"]
-}, Closed]]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[8049, 193, 157, 3, 67, "Section",ExpressionUUID->"bf78f765-73ef-4881-928e-ae6b729c539c"],
 Cell[CellGroupData[{
 Cell[8231, 200, 236, 4, 45, "Subsubsection",ExpressionUUID->"a836ff8b-c976-4b33-ae1d-9ddb0b98cf47"],
-Cell[8470, 206, 2100, 38, 472, "Text",ExpressionUUID->"81bc3d91-513a-4527-99e2-c0308f1d24d4"],
-Cell[10573, 246, 5822, 132, 719, "Input",ExpressionUUID->"61ffe17f-4411-4c32-8eb2-03a96c85f852"]
+Cell[8470, 206, 3509, 54, 656, "Text",ExpressionUUID->"81bc3d91-513a-4527-99e2-c0308f1d24d4"],
+Cell[11982, 262, 5822, 132, 719, "Input",ExpressionUUID->"61ffe17f-4411-4c32-8eb2-03a96c85f852"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[16432, 383, 150, 3, 37, "Subsubsection",ExpressionUUID->"e1df927a-a406-4092-983d-092d0db35462"],
-Cell[16585, 388, 367, 8, 58, "Text",ExpressionUUID->"4d966ed9-8623-419a-a131-57345821dc5b"],
-Cell[16955, 398, 960, 20, 242, "Text",ExpressionUUID->"46d6524e-7a4d-43ef-8ef5-99d04583e8be"],
-Cell[17918, 420, 2363, 60, 152, "Input",ExpressionUUID->"a1ef10b6-a9ab-4297-b85a-4f6d694f7c42"]
+Cell[17841, 399, 150, 3, 37, "Subsubsection",ExpressionUUID->"e1df927a-a406-4092-983d-092d0db35462"],
+Cell[17994, 404, 367, 8, 58, "Text",ExpressionUUID->"4d966ed9-8623-419a-a131-57345821dc5b"],
+Cell[18364, 414, 960, 20, 242, "Text",ExpressionUUID->"46d6524e-7a4d-43ef-8ef5-99d04583e8be"],
+Cell[19327, 436, 2363, 60, 152, "Input",ExpressionUUID->"a1ef10b6-a9ab-4297-b85a-4f6d694f7c42"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[20318, 485, 175, 3, 37, "Subsubsection",ExpressionUUID->"f09d6d70-7710-443d-8488-b64395feb399"],
-Cell[20496, 490, 415, 8, 35, "Text",ExpressionUUID->"a7085009-a3d0-4e33-ae9f-12c2f09b3e7a"],
-Cell[20914, 500, 2207, 42, 110, "Input",ExpressionUUID->"0cef4333-f0ee-4057-8e3c-cc1fc5fbe521"]
+Cell[21727, 501, 175, 3, 37, "Subsubsection",ExpressionUUID->"f09d6d70-7710-443d-8488-b64395feb399"],
+Cell[21905, 506, 415, 8, 35, "Text",ExpressionUUID->"a7085009-a3d0-4e33-ae9f-12c2f09b3e7a"],
+Cell[22323, 516, 2207, 42, 110, "Input",ExpressionUUID->"0cef4333-f0ee-4057-8e3c-cc1fc5fbe521"]
 }, Closed]]
 }, Open  ]]
 }, Open  ]]
