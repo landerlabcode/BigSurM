@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     26822,        610]
-NotebookOptionsPosition[     24570,        563]
-NotebookOutlinePosition[     24962,        579]
-CellTagsIndexPosition[     24919,        576]
+NotebookDataLength[     26821,        609]
+NotebookOptionsPosition[     24569,        562]
+NotebookOutlinePosition[     24961,        578]
+CellTagsIndexPosition[     24918,        575]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -214,14 +214,13 @@ construction of a K Nearest Neighbor graph and calculation of the Shared \
 Nearest Neighbors from the first ",
  StyleBox["n",
   FontSlant->"Italic"],
- " principal components",
- ". This acts as a modified KNN approach where the edge weights are pruned \
-based on each node\[CloseCurlyQuote]s (cell\[CloseCurlyQuote]s) Jaccard \
-similarity index  with it\[CloseCurlyQuote]s neighbors. Edges between nodes \
-that have a Jaccard index lower than the cutoff will be removed. Default \
-parameters are identical to those found in Seurat.\n\nThis function uses \
-IGraphM, one of the external packages loaded with BigSur, for the final \
-plotting step, where it calls, \
+ " principal components. This acts as a modified KNN approach where the edge \
+weights are pruned based on each node\[CloseCurlyQuote]s (cell\
+\[CloseCurlyQuote]s) Jaccard similarity index  with its neighbors. Edges \
+between nodes that have a Jaccard index lower than the cutoff will be \
+removed. Default parameters are identical to those found in Seurat.\n\nThis \
+function uses IGraphM, one of the external packages loaded with BigSur, for \
+the final plotting step, where it calls, \
 \[OpenCurlyDoubleQuote]IGWeightedAdjacencyGraph\[CloseCurlyDoubleQuote]\n\nTo \
 use SNNGraph one first decides what features to use for clustering.  This may \
 be done by taking the genes with the most significant modified corrected Fano \
@@ -256,8 +255,8 @@ is that weighted adjacency matrix."
    3.906918036388685*^9}, {3.906918067252406*^9, 3.90691813985773*^9}, {
    3.906918271297433*^9, 3.906918399450942*^9}, {3.90691847952139*^9, 
    3.906918560757153*^9}, {3.906918593761982*^9, 3.906918606013411*^9}, {
-   3.906918791789472*^9, 3.9069188373131657`*^9}, 
-   3.906918872036512*^9},ExpressionUUID->"81bc3d91-513a-4527-99e2-\
+   3.906918791789472*^9, 3.9069188373131657`*^9}, 3.906918872036512*^9, 
+   3.907063503705943*^9},ExpressionUUID->"81bc3d91-513a-4527-99e2-\
 c0308f1d24d4"],
 
 Cell[BoxData[
@@ -393,7 +392,7 @@ Cell[BoxData[
  Background->RGBColor[1, 1, 0],
  CellLabel->
   "In[178]:=",ExpressionUUID->"61ffe17f-4411-4c32-8eb2-03a96c85f852"]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -596,19 +595,19 @@ Cell[CellGroupData[{
 Cell[8049, 193, 157, 3, 67, "Section",ExpressionUUID->"bf78f765-73ef-4881-928e-ae6b729c539c"],
 Cell[CellGroupData[{
 Cell[8231, 200, 236, 4, 45, "Subsubsection",ExpressionUUID->"a836ff8b-c976-4b33-ae1d-9ddb0b98cf47"],
-Cell[8470, 206, 3509, 54, 656, "Text",ExpressionUUID->"81bc3d91-513a-4527-99e2-c0308f1d24d4"],
-Cell[11982, 262, 5822, 132, 719, "Input",ExpressionUUID->"61ffe17f-4411-4c32-8eb2-03a96c85f852"]
+Cell[8470, 206, 3508, 53, 656, "Text",ExpressionUUID->"81bc3d91-513a-4527-99e2-c0308f1d24d4"],
+Cell[11981, 261, 5822, 132, 719, "Input",ExpressionUUID->"61ffe17f-4411-4c32-8eb2-03a96c85f852"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17840, 398, 150, 3, 45, "Subsubsection",ExpressionUUID->"e1df927a-a406-4092-983d-092d0db35462"],
+Cell[17993, 403, 367, 8, 58, "Text",ExpressionUUID->"4d966ed9-8623-419a-a131-57345821dc5b"],
+Cell[18363, 413, 960, 20, 242, "Text",ExpressionUUID->"46d6524e-7a4d-43ef-8ef5-99d04583e8be"],
+Cell[19326, 435, 2363, 60, 152, "Input",ExpressionUUID->"a1ef10b6-a9ab-4297-b85a-4f6d694f7c42"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[17841, 399, 150, 3, 37, "Subsubsection",ExpressionUUID->"e1df927a-a406-4092-983d-092d0db35462"],
-Cell[17994, 404, 367, 8, 58, "Text",ExpressionUUID->"4d966ed9-8623-419a-a131-57345821dc5b"],
-Cell[18364, 414, 960, 20, 242, "Text",ExpressionUUID->"46d6524e-7a4d-43ef-8ef5-99d04583e8be"],
-Cell[19327, 436, 2363, 60, 152, "Input",ExpressionUUID->"a1ef10b6-a9ab-4297-b85a-4f6d694f7c42"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[21727, 501, 175, 3, 37, "Subsubsection",ExpressionUUID->"f09d6d70-7710-443d-8488-b64395feb399"],
-Cell[21905, 506, 415, 8, 35, "Text",ExpressionUUID->"a7085009-a3d0-4e33-ae9f-12c2f09b3e7a"],
-Cell[22323, 516, 2207, 42, 110, "Input",ExpressionUUID->"0cef4333-f0ee-4057-8e3c-cc1fc5fbe521"]
+Cell[21726, 500, 175, 3, 37, "Subsubsection",ExpressionUUID->"f09d6d70-7710-443d-8488-b64395feb399"],
+Cell[21904, 505, 415, 8, 35, "Text",ExpressionUUID->"a7085009-a3d0-4e33-ae9f-12c2f09b3e7a"],
+Cell[22322, 515, 2207, 42, 110, "Input",ExpressionUUID->"0cef4333-f0ee-4057-8e3c-cc1fc5fbe521"]
 }, Closed]]
 }, Open  ]]
 }, Open  ]]
