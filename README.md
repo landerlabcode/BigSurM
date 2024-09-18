@@ -41,4 +41,4 @@ To visualize the communities that arise from the calculated correlations, refer 
 
 To utilize BigSur in clustering cells, refer to documentation found in **"BigSur Subclustering.nb"**
 
-[1]: https://www.biorxiv.org/content/10.1101/2023.03.14.532643v1 "Leveraging gene correlations in single cell transcriptomic data"
+[1]: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-024-05926-z "Leveraging gene correlations in single cell transcriptomic data"
